@@ -9,12 +9,12 @@
 const decition = new Promise((reslove, reject) => {
   //let resign;
 
-  let resign = true;
+  let resign = false;
 
   // 3 sec wait
-  setTimeout(() => {
+  /* setTimeout(() => {
     resign = true;
-  }, 3000);
+  }, 3000); */
   if (resign) {
     reslove("Good Idea");
   } else {
@@ -22,8 +22,15 @@ const decition = new Promise((reslove, reject) => {
   }
 });
 
-decition.then((msg) => {
-  console.log(msg);
-});
+decition
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch((reject) => {
+    console.log(` Error : ${reject}`);
+  })
+  .finally(() => {
+    console.log(` Finally You did It`);
+  });
 
 //console.log(decition);
